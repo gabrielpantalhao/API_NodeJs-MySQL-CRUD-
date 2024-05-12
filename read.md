@@ -1,6 +1,15 @@
 # API com NodeJs e MySQL (CRUD)
 <br>
 
+Liguagens e bibliotecas utilizadas masis utilizadas:
+<br><br>
+<img src="./src/assets/img/NodeJS_logo.png" style="width:80px;height:50px;border-radius:10%">
+<img src="./src/assets/img/express.png" style="width:75px;height:50px;border-radius:10%">
+<img src="./src/assets/img/MySql_Logo.png" style="width:80px;height:50px;border-radius:10%">
+<img src="./src/assets/img/nodemon1.png" style="width:83px;height:50px;border-radius:10%">
+ 
+ <br>
+
 1 - Criar a pasta APICARRO em algum local de sua preferencia e abrir com o VSCode.
 
 ---
