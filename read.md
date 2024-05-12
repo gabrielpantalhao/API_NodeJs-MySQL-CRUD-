@@ -3,12 +3,16 @@
 
 Liguagens e bibliotecas utilizadas masis utilizadas:
 <br><br>
+<img src="./src/assets/img/JavaScript1.png" style="width:83px;height:50px;border-radius:10%">
 <img src="./src/assets/img/NodeJS_logo.png" style="width:80px;height:50px;border-radius:10%">
 <img src="./src/assets/img/express.png" style="width:75px;height:50px;border-radius:10%">
 <img src="./src/assets/img/MySql_Logo.png" style="width:80px;height:50px;border-radius:10%">
 <img src="./src/assets/img/nodemon1.png" style="width:83px;height:50px;border-radius:10%">
  
  <br>
+
+### Passo a passo 
+<br>
 
 1 - Criar a pasta APICARRO em algum local de sua preferencia e abrir com o VSCode.
 
@@ -246,7 +250,7 @@ Atualize as permissões: Após redefinir a senha, você pode precisar atualizar 
 FLUSH PRIVILEGES;
 ````
 
-20 - No arquivo **_routes.js_** iremos criar o **_router.get_** que é o rota **<span style="color:blue"> executada pela função buscarTodos que está dentro do CarroController</span>**.
+20 - No arquivo **_routes.js_** iremos criar o **_router.get_** que é o rota **executada pela função buscarTodos que está dentro do CarroController**.
 
 ````
 const express = require('express');
