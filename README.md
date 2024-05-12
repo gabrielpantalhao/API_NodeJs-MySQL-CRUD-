@@ -1,7 +1,7 @@
 # API com NodeJs e MySQL (CRUD)
 <br>
 
-Liguagens e bibliotecas utilizadas masis utilizadas:
+Liguagens e bibliotecas utilizadas mais utilizadas:
 <br><br>
 <img src="./src/assets/img/JavaScript1.png" style="width:83px;height:50px;border-radius:10%">
 <img src="./src/assets/img/NodeJS_logo.png" style="width:80px;height:50px;border-radius:10%">
