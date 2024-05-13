@@ -340,7 +340,7 @@ module.exports = router; // exportando o modulo router para administrar as rotas
 // função que realizará a busca através dq query SELECT no MySQL trazendo somente um resutado da lista dos carros cadastrados, realiando a busca pelo código.
     buscarUm: () => {
         return new Promise((aceito, rejeitado) => {
-            bd.query('SELECT * FROM carros WHERE codigo = ?', [codiigo], (error, results) =>{
+            bd.query('SELECT * FROM carros WHERE codigo = ?', [codigo], (error, results) =>{
                 if(error) {rejeitado(error); return;}
                 if(results.length > 0) {
                     aceito(results[0]);
