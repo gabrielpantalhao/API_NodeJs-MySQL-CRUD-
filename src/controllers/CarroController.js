@@ -16,5 +16,17 @@ module.exports = {
             });
         }
         res.json(json); // pega o resultado e passa para o formato JSON.
+    },
+
+    buscarUm: async (req, res) => {
+        let json = {error: '', results:{}}; // variavel que amazenara erros ou arrays de resultados.
+
+        let codigo = req.params.codigo;
+        let carro = await CarroService.buscarUm(codigo);
+
+        if(carro){
+            json.results = carro;
+        }
+        res.json(json); // pega o resultado e passa para o formato JSON.
     }
-}
+};

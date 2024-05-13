@@ -249,8 +249,13 @@ Atualize as permissões: Após redefinir a senha, você pode precisar atualizar 
 ````
 FLUSH PRIVILEGES;
 ````
+---
+<br>
 
-20 - No arquivo **_routes.js_** iremos criar o **_router.get_** que é o rota **executada pela função buscarTodos que está dentro do CarroController**.
+## Daqui para frente criaremos nosso CRUD (Create, Read, Update e Delete), conactando nossa aplicação ao MySQL.
+<br>
+
+20 - No arquivo **_routes.js_** iremos criar o **_router.get('/carros', CarroCotroller.buscarTodos);_** que é o rota **executada pela função buscarTodos que está dentro do CarroController**.
 
 ````
 const express = require('express');
@@ -265,9 +270,9 @@ module.exports = router; // exportando o modulo router para administrar as rotas
 <br>
 
 ---
-## Daqui para frente criaremos nosso CRUD (Create, Read, Update e Delete)
+### 1. CREATE - Criando a função de buscar todos carros cadastrados. 
 
-21 - No arquivo **_CarroController_** dentro da pasta controller, criaremos a função **_buscarTodos_** que receberá um resultado da requisição SQL do carroService, e criaremos um loop (FOR) percorrendo a lista com os atributos que capturaremos (codigo, modelo e placa), e armazenadando os em um resultado do tipo JSON.
+21 - No arquivo **_CarroController_** dentro da pasta controller, criaremos a função **_buscarTodos_** que receberá o resultado da requisição SQL do carroService, e criaremos um loop (FOR) percorrendo a lista com os atributos que capturaremos (codigo, modelo e placa), e armazenadando os em um resultado do tipo JSON.
 
 ````
 const CarroService = require('../services/CarroService');
@@ -288,7 +293,7 @@ module.exports = {
             });
         }
         res.json(json); // pega o resultado e passa para o formato JSON.
-    }
+    },
 }
 ````
 ---
@@ -306,9 +311,49 @@ module.exports = {
                 aceito(results);
             });
         });
-    }
+    },
 };
 ````
+
+
+### 2. READ - Criando a função de buscar um carro cadastrado.
+
+23 - No arquivo **_routes.js_** iremos criar o **_router.get('/carro/:codigo', CarroCotroller.buscarUm);_** que é o rota **executada pela função buscarTodos que está dentro do CarroController**.
+
+````
+const express = require('express');
+const router = express.Router();
+
+const CarroCotroller = require('./controllers/CarroController');
+
+router.get('/carros', CarroCotroller.buscarTodos);
+router.get('/carro/:codigo', CarroCotroller.buscarUm);
+
+module.exports = router; // exportando o modulo router para administrar as rotas
+````
+<br>
+
+---
+24 - No arquivo **_CarroService_** dentro da pasta services, **_dentro do mudule.exports e abaixo da função buscarTodos_**, criaremos a função **_buscarUm_** que receberá o resultado da requisição SQL do carroService, onde realizá a busca de um carro atraves do codigo.
+
+````
+// função que realizará a busca através dq query SELECT no MySQL trazendo somente um resutado da lista dos carros cadastrados, realiando a busca pelo código.
+    buscarUm: () => {
+        return new Promise((aceito, rejeitado) => {
+            bd.query('SELECT * FROM carros WHERE codigo = ?', [codiigo], (error, results) =>{
+                if(error) {rejeitado(error); return;}
+                if(results.length > 0) {
+                    aceito(results[0]);
+                }else {
+                    aceito(false);
+                }
+            });
+        });
+    }
+````
+
+
+
 
 
 
